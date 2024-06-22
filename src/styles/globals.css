@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #e4e4e7;
+  --foreground: #27272a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #27272a;
+    --foreground: #e4e4e7;
+  }
+}
+
+@layer base {
+  body {
+    color: var(--foreground);
+    background: var(--background);
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply text-lg;
+  }
+}
+
+@layer components {
+  .input {
+    @apply rounded bg-zinc-700 p-2;
+  }
+
+  .button {
+    @apply rounded bg-foreground p-2 text-background;
+  }
+}
