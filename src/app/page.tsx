@@ -24,7 +24,7 @@ export default async function Home() {
           )
 
           return (
-            <Link href={"/" + path} key={i} className="rounded bg-zinc-700 p-2">
+            <Link href={"/" + path} key={i} className="nice border-base">
               <Image
                 src={imager(path)}
                 alt="Fragrance Image"

@@ -30,7 +30,7 @@ export default function Vote({ fragranceId, existing }: Props) {
     <>
       <form action={formAction}>
         {["rating", "longevity", "sillage"].map((attribute, i) => (
-          <div key={i} className="">
+          <div key={i}>
             <p className="text-center">{cap(attribute)}</p>
 
             <input

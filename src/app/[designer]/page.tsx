@@ -11,22 +11,22 @@ interface Props {
 
 export default async function Designer({ params }: Props) {
   const designer = await prisma.designer.findUnique({
-    where: { slug: params.designer },
+    where: { slug: params.designer.toLowerCase() },
     include: { lines: { include: { fragrances: true } } },
   })
   if (!designer) throw Error("Designer not found")
 
   return (
     <>
-      <p>{designer.name}</p>
+      <h1>{designer.name}</h1>
 
-      <div className="flex">
+      <div className="flex gap-2">
         {designer.lines.map((line, i) => {
           return (
             <Link
               href={params.designer + "/" + line.slug}
               key={i}
-              className="rounded bg-zinc-700 p-2"
+              className="nice border-base"
             >
               <Image
                 src={imager(

@@ -7,7 +7,7 @@ export default async function Navbar() {
   const session = await auth()
 
   return (
-    <nav className="flex h-20 items-center border-2 border-solid border-background border-b-zinc-700 px-4">
+    <nav className="flex h-20 items-center px-4">
       <Link href="/" className="text-3xl">
         Oderum
       </Link>
@@ -16,7 +16,7 @@ export default async function Navbar() {
         {session && (
           <Link
             href={"/user/" + session.user.username}
-            className="relative size-12 rounded-full bg-zinc-700"
+            className="bg-accent relative size-12 rounded-full"
           >
             <Image
               src={imager("profile/" + session.user.id)}
@@ -33,7 +33,7 @@ export default async function Navbar() {
             session ? await signOut() : await signIn()
           }}
         >
-          <button className="rounded-full bg-zinc-700 px-4 py-2 text-lg">
+          <button className="button rounded-full px-3 text-lg">
             {session ? "Sign Out" : "Sign In"}
           </button>
         </form>

@@ -12,7 +12,7 @@ export default function PendingButton({ text = "Submit" }: Props) {
   return (
     <button
       disabled={pending}
-      className="rounded bg-foreground p-2 text-background disabled:cursor-not-allowed disabled:bg-zinc-300"
+      className="nice button disabled:cursor-not-allowed disabled:bg-zinc-400"
     >
       {text}
     </button>

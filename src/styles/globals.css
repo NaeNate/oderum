@@ -4,14 +4,7 @@
 
 :root {
   --background: #e4e4e7;
-  --foreground: #27272a;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #27272a;
-    --foreground: #e4e4e7;
-  }
+  --foreground: #18181b;
 }
 
 @layer base {
@@ -21,7 +14,7 @@
   }
 
   h1 {
-    @apply text-2xl;
+    @apply mb-4 text-2xl;
   }
 
   p {
@@ -30,11 +23,19 @@
 }
 
 @layer components {
+  .nice {
+    @apply rounded p-2;
+  }
+
+  .border-base {
+    @apply border-accent border-2 border-solid;
+  }
+
   .input {
-    @apply rounded bg-zinc-700 p-2;
+    @apply nice border-base border-[1.5px] bg-background;
   }
 
   .button {
-    @apply rounded bg-foreground p-2 text-background;
+    @apply nice bg-accent text-background;
   }
 }

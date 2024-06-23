@@ -10,7 +10,7 @@ export default function FileInput({ required = false }: Props) {
   const [selected, setSelected] = useState(false)
 
   return (
-    <>
+    <div className="flex items-center">
       <label
         htmlFor="file"
         tabIndex={0}
@@ -19,7 +19,7 @@ export default function FileInput({ required = false }: Props) {
             (document.querySelector("#file") as any).click()
         }}
         className={
-          "cursor-pointer whitespace-nowrap rounded p-2 text-center " +
+          "nice cursor-pointer whitespace-nowrap text-center " +
           (selected ? "bg-green-500" : "bg-red-500")
         }
       >
@@ -33,6 +33,6 @@ export default function FileInput({ required = false }: Props) {
         onChange={() => setSelected(true)}
         className="hidden"
       />
-    </>
+    </div>
   )
 }

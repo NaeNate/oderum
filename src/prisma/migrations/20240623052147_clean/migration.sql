@@ -51,6 +51,18 @@ CREATE TABLE "FragranceToNote" (
 );
 
 -- CreateTable
+CREATE TABLE "Vote" (
+    "id" SERIAL NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "longevity" INTEGER NOT NULL,
+    "sillage" INTEGER NOT NULL,
+    "userId" TEXT NOT NULL,
+    "fragranceId" INTEGER NOT NULL,
+
+    CONSTRAINT "Vote_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "name" TEXT,
@@ -127,6 +139,9 @@ CREATE UNIQUE INDEX "Fragrance_slug_key" ON "Fragrance"("slug");
 CREATE UNIQUE INDEX "Note_slug_key" ON "Note"("slug");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Vote_userId_fragranceId_key" ON "Vote"("userId", "fragranceId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
@@ -161,6 +176,12 @@ ALTER TABLE "FragranceToNote" ADD CONSTRAINT "FragranceToNote_fragranceId_fkey" 
 
 -- AddForeignKey
 ALTER TABLE "FragranceToNote" ADD CONSTRAINT "FragranceToNote_noteId_fkey" FOREIGN KEY ("noteId") REFERENCES "Note"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Vote" ADD CONSTRAINT "Vote_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Vote" ADD CONSTRAINT "Vote_fragranceId_fkey" FOREIGN KEY ("fragranceId") REFERENCES "Fragrance"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -15,7 +15,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={inter.className + " flex min-h-screen flex-col"}>
         <Navbar />
-        <main className="mx-auto my-8 w-3/5 flex-grow">{children}</main>
+        <div className="bg-accent h-[2px]" />
+        <main className="mx-auto my-4 w-3/5 flex-grow">{children}</main>
+        <div className="bg-accent h-[2px]" />
         <Footer />
       </body>
     </html>
